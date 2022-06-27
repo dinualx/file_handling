@@ -1,3 +1,13 @@
+Testing the following functionalities for file handling:
+Read input from a file of words
+Find the longest word in the file
+Transpose the letters in the longest word
+Show the longest word and the longest word transposed 
+
+Below there are my assumptions:
+
+
+
 import os
 import pdfplumber
 import docx
@@ -180,31 +190,7 @@ class FILE:
 
 
 
-v = FILE()
-g = FILE()
-h = FILE()
-k = FILE()
-# v.extractbasename("/home/alex/alex/practice/SampleTextFile.txt")
-# v.validatefiletype("/home/alex/alex/practice/SampleTextFile.txt")
-# v.getfileextension("/home/alex/alex/practice/SampleTextFile.txt")
-# v.getallwords("/home/alex/alex/practice/SampleTextFile.txt")
-# g.getallwords("/home/alex/alex/practice/addresses.csv")
-# h.getallwords("/home/alex/alex/practice/samplefile.docx")
-# k.getallwords("/home/alex/alex/practice/sample2.pdf")
-# k.findlongestword("/home/alex/alex/practice/sample2.pdf")
-# v.findlongestwords("/home/alex/alex/practice/SampleTextFile.txt")
-# g.findlongestwords("/home/alex/alex/practice/industry.csv")
-# v.transposelongest("/home/alex/alex/practice/SampleTextFile.txt")
-# k.transposelongest("/home/alex/alex/practice/sample2.pdf")
-# k.findlongestwords("/home/alex/alex/practice/sample2.pdf")
-# k.showlongestandtransposed("/home/alex/alex/practice/sample2.pdf")
-# v.showlongestandtransposed("/home/alex/alex/practice/SampleTextFile.txt")
-# h.showlongestandtransposed("/home/alex/alex/practice/samplefile.docx")
-# g.showlongestandtransposed("/home/alex/alex/practice/addresses.csv")
-# v.transposeword('transposition')
-# k.showlongestandtransposed("D:\\files\\addresses.csv")
-# k.showlongestandtransposed("D:\\files\\textsamplefile.txt")
-# k.showlongestandtransposed("D:\\files\\samplefile.docx")
+
 
 
 
