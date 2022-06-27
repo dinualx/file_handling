@@ -209,6 +209,10 @@ after having this arrangement, the word is remade by joining each column, so we 
         return transposed
 
 
+This method is to transpose the longest word, it uses the transposeword method from above, we need at least 2 letters in the word for it to be transpossed, or else an error is raised.
+
+
+
     def transposelongest(self, path):
         if self.getlongestlength(path) >= 2:
             pass
@@ -222,6 +226,10 @@ after having this arrangement, the word is remade by joining each column, so we 
         print('this is the list with the longest words transposed: {}'.format(transposed_list))
         return transposed_list
 
+
+This method prints and returns the longest word and the longest word transposed.
+
+
     def showlongestandtransposed(self, path):
         longest = self.findlongestwords(path)
         longest_transposed = self.transposelongest(path)
@@ -229,7 +237,19 @@ after having this arrangement, the word is remade by joining each column, so we 
         return(longest,longest_transposed)
 
 
+I ran my project in a Windows environment. As a CI tool I used Jenkins. As framework I used robot.
+The project contains the following:
+The FILE python file, which contains all the methods written in python
+The file_handling robot file, which contains all the tests written in robot
+The run bat file, which contains the windows batch commands to run the project
+A folder with the files under test that I used in my test cases, there are a .txt, a .pdf, a .csv and a .docx file
 
+
+For python you need to install the python modules that I have used, with pip install and the module name.
+In my robot test cases I have used local paths for the files, you will have to change them accordingly to where you will
+put the files locally on ypur machine.
+In my run.bat file I have used commands to go to the project location, you will have to do the same thing for this, 
+to modify the path from the command accordingly.
 
 
 
