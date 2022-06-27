@@ -36,10 +36,12 @@ below there are the class variables that I considered I need, initialized within
         self.longestlength = ""
         self.mykey = 3
 
-I created a reinit method which does the same thing as the init constructor, for using it in the class methods if needed
+I created a reinit method which does the same thing as the init constructor, for using it in the class methods if needed. Of course, this reinit method will reset to default the class variables for a specific instance
 
     def reinit(self):
         self.__init__()
+        
+This method below it is used to extract only the file name along with its extension, from the provided path depending on operating system, MACOS, Linux or Windows, I called built-in methods for windows I called a method using PureWindowsPath and platform libraries for MACOS and Linux I called a method using os library        
 
     def extractbasename(self, path):
         if platform.system() =='Windows':
@@ -48,6 +50,10 @@ I created a reinit method which does the same thing as the init constructor, for
             tail = os.path.basename(path)
             self.basename = tail
         return tail
+
+The method below it is used to extract only the extension from the file provided file path. without the dot character
+First, the whole filename is extracted with its extension, splitted the filename in two, the actual filename and its extension, needing only its extension, that means it is the second item from splitted list, list start from index 0, so list[1], also this function will return the extension
+
 
     def getfileextension(self, path):
         filename = self.extractbasename(path)
