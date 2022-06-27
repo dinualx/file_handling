@@ -1,10 +1,10 @@
-Testing the following functionalities for file handling:
-Read input from a file of words
-Find the longest word in the file
-Transpose the letters in the longest word
-Show the longest word and the longest word transposed 
+#Testing the following functionalities for file handling:
+#Read input from a file of words
+#Find the longest word in the file
+#Transpose the letters in the longest word
+#Show the longest word and the longest word transposed 
 
-Below there are my assumptions:
+#Below there are my assumptions:
 
 
 
