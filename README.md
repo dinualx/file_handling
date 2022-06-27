@@ -253,9 +253,34 @@ to modify the path from the command accordingly.
 
 
 
+Let's move on to the Jenkins part, the tool I chose to build the project run.
+In Jenkins I created a new freestyle project and set it up as written below.
 
+For the BUILD tab, I selected Execute windows batch command and added these commands: 
+- cd C:\Users\alexdinu\PycharmProjects\API_Automation
+- run.bat
 
+With the first command we will go in the location where you can have multiple project folders, and as I said, for you this will be differnet depending on yout local 
+path, where will the project folder will be placed.
+The second command will run the bat file. Inside the bat file we have 2 commands:
+- cd C:\Users\alexdinu\PycharmProjects\API_Automation\ProjectCyber
+- pabot --processes 1 --outputdir Results TestCases\*.robot
+The first command goes to the project folder. You can have multiple project folder inside API_Automation for example, 
+and this command goes to the project that we want to run.
+The second command will run the test files. The processes argument has as value 1 meaning that there is one file that will be ran, 
+the file_handling.robot file.
+If there are multiple robot files to run you can modify the value from 1 accordingly as all the robot files to be processed.
 
+Also, pabot module has to be installed in python for the pabot command to run successfully.
+That's it for Jenkins.
+
+IMPORTANT!!!
+Only one file per test should be used, because I wrote the python code as to have one instance for one single type file.
+The instance variables will be populated with values from the specific file.
+If multiple files are used in the same test, the instance variables will be overwritten with the values from the second file file.
+And further if another file is used in the test, again the instance variables will take the new values from the new file and so on.
+So, only one file per test.
+Practically we use only one instance of the class per test.
 
 
 
