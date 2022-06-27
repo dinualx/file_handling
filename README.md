@@ -62,12 +62,19 @@ First, the whole filename is extracted with its extension, splitted the filename
         return self.fileextension
 
 
+The method below it is used to validate file type based onits extension. I used a variable to store the instance self.fileextension variable by calling getfileextension(path), if the extension is not in the expected values, an error is raised, if the method runs successfully, it will return True value
+
 
     def validatefiletype(self, path):
         extension = self.getfileextension(path)
         if extension not in self.extensions:
             raise ValueError("Invalid file type, extension must be .csv, .txt, .pdf or .docx")
         return True
+
+
+The below methos will retrieve all words from the provided file. First, we validate the file type using the validatefiletype method; if the validatefiletype method fails, getallwords will practically fail at this step; I treated each type of file in particular. I placed the code in a try except block to handle 2 error situation, the first when file is not found; file could not be found due to wrong path or wrong filename in the path or anything wrong with the path; the second handled situation practically when the qfile cannot be opened for any other reasons, like password protected, corrupted or anything else that prevents the file to be opened; the words are placed in a list; I populated self.allwords instance variable with the list. After file type is opened and we retrieve all words in a list I have made a check step for this, to see if the words list is empty or not. If empty, an error will be raised that the provided file does not contain text. I raised an error here because there is no point in going further with anything that involves text processing if there is no text.
+
+
 
     def getallwords(self, path):
         if self.validatefiletype(path):
@@ -140,6 +147,11 @@ First, the whole filename is extracted with its extension, splitted the filename
         return self.allwords
 
 
+For finding the longest words, because can be multiple words which have the same lenght, the below method. I used what self.getallwords returns - meaning the list with all words having this list, I sorted it to start with the longest word first, that is why reverse is True here, having the first word as the longest, after it could be multiple words having the same maximum length so the max length is the length of the first word from the sorted list every word that has this length will be placed in the list with longest words, if the word has the maxim length so now we have a list with the longest words, longest[]
+it is possible to have duplicates in it, if not we will populate self.longestword with longest if we have duplicates in this list, I created a dictionary having as keys the words that are duplciated, and having as values the count for each word. So having these organized in this manner, I retrieve from this dictionary only the keys, these keys being the words without duplication. And I populate self.longestword with keys from this dictionary 
+
+
+
     def findlongestwords(self, path):
         sorted_list = sorted(self.getallwords(path), key=len, reverse=True)
         max_length = len(sorted_list[0])
@@ -165,11 +177,25 @@ First, the whole filename is extracted with its extension, splitted the filename
             # print('this is the list with the longest words: {}'.format(longest) + ', and this is the longest length: {}'.format(longestlength))
         return self.longestword
 
+
+The method below is to find out what is the length of the logest word. I have used what self.findlongestwords return to get the length of the first word from the list, which is the longest.
+
+
     def getlongestlength(self, path):
         list = self.findlongestwords(path)
         self.longestlength = len(list[0])
         return self.longestlength
 
+
+For transposing the words I have created a transposition cypher, it takes as argument the word that you want to transposed.
+I have defined a key, took it from the self.mykey instance variable, which is the same for all instances; what this function does, it arranges the letters from the word one by one into a matrix which has 3 columns; I have 3 columns because the column number is equal with the key, so let's take an example, if we have the word demonstration, it will be arranged in this manner:it will be a first line created from d-e-m, because we reached the key length value, 
+#which is 3, another line is started under the first line, o-n-s, then anther one, under it t-r-a, the another one t-i-o, and eventually the last line which has only one letter and 2 blanks, n.
+d-e-m
+o-n-s
+t-r-a
+t-i-o
+n
+after having this arrangement, the word is remade by joining each column, so we will have d-o-t-t-n-e-n-r-i-m-s-a-o so, instead of demonstration we will have dottnenrimsao.
 
     def transposeword(self, word):
         key = self.mykey
