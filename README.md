@@ -1,11 +1,16 @@
-#Testing the following functionalities for file handling:
-#Read input from a file of words
-#Find the longest word in the file
-#Transpose the letters in the longest word
-#Show the longest word and the longest word transposed 
+Testing the following functionalities for file handling:
+Read input from a file of words
+Find the longest word in the file
+Transpose the letters in the longest word
+Show the longest word and the longest word transposed 
 
-#Below there are my assumptions:
-
+Below there are my assumptions:
+I considered these files could be passed in by the user for processing:
+- .txt, .csv, .pdf, .docx
+- if a different type of file is passed in, an error will be raised
+- if the file path is wrong and the file cannot be found, I handled this case to raise an error with the specific message
+- if the file cannot be opened for various reasons like password protected or corrupted or any other reason, for this case it will be an error message raised with a specific message
+- if no text is found in the file, an error will be raised with a specific message
 
 
 import os
