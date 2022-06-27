@@ -20,7 +20,11 @@ from pathlib import PureWindowsPath
 import platform
 
 
+the above modules and libraries needed for building the code
+I have created a class for all the methods to be part of this FILE class
 class FILE:
+
+below there are the class variables that I considered I need, initialized within the constructor init method
 
     def __init__(self):
         self.basename = None
