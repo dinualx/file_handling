@@ -36,6 +36,7 @@ below there are the class variables that I considered I need, initialized within
         self.longestlength = ""
         self.mykey = 3
 
+I created a reinit method which does the same thing as the init constructor, for using it in the class methods if needed
 
     def reinit(self):
         self.__init__()
